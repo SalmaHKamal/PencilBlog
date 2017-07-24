@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <!-- this is used to remove the hash symbol from url -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+   
+    <!-- Css files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/normalize.css"> -->
+    <link rel="stylesheet" href="assets/css/indexStyle.css">
+    <link rel="stylesheet" href="assets/css/postPageStyle.css">
+    <link rel="stylesheet" href="assets/css/newBlogStyle.css">
+    <link rel="stylesheet" href="assets/css/loginPage.css">
+    <link rel="stylesheet" href="assets/css/registerPage.css">
+    
+    
+
+
+    <!-- fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Lora|Rokkitt" rel="stylesheet">
+
+    <!-- main angular files-->
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
+
+    <!-- angular config / routes-->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <!-- angular controllers -->
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/postDetails.js"></script>
+    <script src="app/controllers/blogCtrl.js"></script>
+
+    <!-- angular services -->
+    <script src="app/services/newsService.js"></script>
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+    <script src="app/services/blogService.js"></script>
+
+    <!-- angular directives -->
+    <script src="app/directives/fileModel.js"></script>
+
+
+
+    <title>Pencil Blog</title>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+
+    <nav class="navbar navbar-default" id="full-navbar">
+        <div class="nav-container container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle navbarBtn" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand">
+                    <div>
+                        <img class="img img-responsive" src="assets/images/pencil.jpg" />
+                    </div>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right nav-lists">
+                    <li><a class="active home" href="/">home</a></li>
+                    <li><a class="blog" href="/blog" >blog</a></li>
+                    <li><a href="" class="port">portofolio</a></li>
+                    <li><a href="">contact</a></li>
+                    <li><a href="">about</a></li>
+                    <li  ng-if="!main.username"><a class="login" href="/login">login</a></li>
+                    <li  ng-if="!main.username"><a class="register" href="/register">register</a></li>  
+                    <li class="dropdown" ng-if="main.username"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Hello {{main.username}}<span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="/userProfile/{{main.username}}">profile</a></li>
+                            <li><a class="logout" href="" ng-click="main.logout();" ng-show="main.username">logout</a></li>
+                        </ul>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="view-id" ng-view ></div>
+
+
+
+    <!-- <svg width='0' height='0'>
+        <defs>
+            <clipPath id="clipping" clipPathUnits="objectBoundingBox">
+                <polygon points="0.08 0, 0.92 0, 10.2 58.65, 20.6 15.9, 0 16.2, 0 0.5" />
+            </clipPath>
+        </defs>
+    </svg> -->
+
+
+    <!-- Start Scroll to top -->
+    <!-- <div id="scroll-top">
+        <i class="glyphicon glyphicon-menu-up"></i>
+    </div> -->
+    <!-- End Scroll to top-->
+
+   
+    <!--Loading layer-->
+     <!-- <section class="loading-overlay">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </section>  -->
+
+
+   
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBmnATbcsItV07AIzYhG-6E0ZYgZgTkh3w"></script> 
+
+
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+// variables 
+@import "fonts";
+@import "colors";
+
+
+/* container style */
+
+.container {
+    max-width: 867px; // lg screen
+    @media screen and (min-width: 769px) {}
+}
+
+#full-navbar>.container {
+    padding-right: 15;
+    @media screen and (max-width: 768px) {
+        padding-left:34px;
+    }
+}
+
+#myNavbar {
+    padding-right: 0;
+}
+
+
+/* posts head style */
+
+h2 {
+    font-family: $headFont;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 28px;
+    color: black;
+    @media screen and (max-width: 768px) {
+        font-size: 24px;
+    }
+    @media screen and (max-width:640px) {
+        font-size: 19.5px;
+    }
+}
+
+h3 {
+    @extend h2;
+    font-size: 23px;
+    @media screen and (max-width: 768px) {
+        font-size: 22px!important;
+    }
+    @media screen and (max-width: 640px) {
+        font-size: 18px!important;
+    }
+}
+
+body {
+    font-family: $normalFont;
+}
+
+#view-id {
+    padding-top: 60px;
+}
+
+
+/* Navbar style */
+
+#full-navbar {
+    background-color: white;
+    top: 24px;
+    border: none;
+    .nav-container {
+        border-top: 1px solid $headerBorderColor;
+        border-bottom: 1px solid $headerBorderColor;
+        max-width: 1172px;
+        margin: auto;
+        .navbar-header button {
+            position: relative;
+            top: 17px;
+        }
+        .navbar-brand {
+            padding: 0;
+            img {
+                padding-top: 2px;
+                padding-bottom: 1px;
+            }
+        }
+        .navbar-collapse.in{
+            overflow-y: visible;
+        }
+    }
+    .nav>li>a {
+        padding: 0;
+        background-color: white;
+    }
+    .nav-lists>li>a {
+        color: black;
+    }
+    .nav-lists>li>a:hover {
+        color: gray;
+    }
+    .nav-lists>li>a:focus,
+    .nav-lists .active {
+        color: #00bcb1;
+    }
+    .nav-lists {
+        position: relative;
+        top: ((83px-20)/2);
+        /* such that 83px is the nav height and 16px is the ul height */
+        color: black;
+        li {
+            margin-left: 18px;
+            text-transform: uppercase;
+            font: 13px "Lora", serif;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            @media screen and (max-width: 640px){
+                margin: 0;
+            }
+        }
+
+    }
+}
+
+.dropdown-menu li a {
+    text-transform: lowercase;
+}
+
+
+/* post style */
+
+// #first-post { 
+//     padding-bottom: 50px;  
+// }
+// #second-post{
+//        
+// }
+#first-post,
+#second-post {
+    padding-bottom: 50px;
+    h6,
+    .comment-number {
+        color: $continueReading;
+        font-size: 14px;
+        @media screen and (max-width: 768px) {
+            font-size: 13px!important;
+        }
+    }
+    .div-content {
+        margin-left: 112px;
+        margin-top: 21px;
+        font-size: 17px;
+        max-width: 691px;
+        line-height: 1.7;
+        @media screen and (max-width: 768px) {
+            margin-left: 73px!important;
+            font-size: 15px!important;
+            max-width: 618px!important;
+        }
+        @media screen and (max-width: 640px) {
+            margin-left: 33px !important;
+            font-size: 13px !important;
+            max-width: 536px !important;
+        }
+        .continue-anchor {
+            color: $continueReading;
+            border-bottom: 1.5px solid #f3f3f3;
+            padding-bottom: 8px;
+            font-size: 16px;
+            text-decoration: none;
+            &:hover {
+                cursor: pointer;
+                color: gray;
+                border-bottom: 1.5px solid gray;
+            }
+            @media screen and (max-width: 768px) {
+                font-size: 14px!important;
+            }
+            @media screen and (max-width: 640px) {
+                font-size: 13px !important;
+            }
+        }
+        p {
+            padding-top: 10px;
+            padding-bottom: 18px;
+            color: black;
+            display: block;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            overflow: hidden;
+            max-height: 7.4em;
+            /* line-height: 1.8em; */
+            text-overflow: ellipsis;
+        }
+    }
+    .post-image {
+        border-radius: 4px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+// share icon
+.fa-share-alt {
+    float: right;
+    color: #dbdbe2;
+    background-color: #f5f5f5;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    position: relative;
+    top: 22px;
+    &:hover {
+        cursor: pointer;
+        color: gray;
+        background-color: #eee;
+    }
+    @media screen and (max-width: 768px) {
+        padding: 10px!important;
+    }
+    @media screen and (max-width: 640px) {
+        padding: 9px !important;
+    }
+}
+
+
+/* more posts style */
+
+#more-posts {
+    padding-top: 0;
+    padding-bottom: 0;
+    @extend #first-post;
+    .more-posts-container {
+        border-bottom: 3px solid $lineColor;
+        padding-bottom: 30px;
+    }
+    #keepGoing-h3 {
+        color: #03c3eb;
+        display: inline-block;
+        border-bottom: 3px solid #f5f5f5;
+        margin-bottom: 20px;
+        font-size: 20px;
+        padding-bottom: 7px;
+    }
+    .posts-row{
+        @media screen and (max-width:640px){
+            text-align: center;
+        }
+    }
+    .div-content {
+        margin-left: 0px!important;
+        padding-bottom: 70px;
+        margin-top: 12px;
+        
+
+        @media screen and (max-width: 768px) {
+            margin-left: 0!important;
+            max-width: 100%!important;
+        }
+        @media screen and (max-width: 640px) {
+            margin-left: auto!important;
+            padding-bottom: 30px;
+        }
+
+        p {
+            padding-bottom: 10px;
+            font-size: 15.5px;
+            max-width: 367px;
+            @media screen and (max-width: 768px) {
+                font-size: 14px;
+                max-width: 333px;
+            }
+            @media screen and(max-width: 640px) {
+                font-size: 12px !important;
+                max-width: 100%;
+            }
+        }
+        .continue-anchor {
+            font-size: 15px;
+        }
+        .comment-number {
+            font-size: 13px;
+        }
+    }
+    .more-posts-image {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+
+                margin-bottom: 16px;
+        max-width: 92%;
+
+        @media screen and (max-width: 640px){
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 640px) {
+            height: auto;
+            max-width: 71%;
+            margin: auto;
+        }
+    }
+    h6 {
+        margin-bottom: 0;
+        @media screen and (max-width: 640px) {
+            font-size: 11px !important;
+        }
+    }
+    .cup-image,
+    .com-image {
+        max-width: 93%;
+        height: 264px;
+
+        @media screen and (max-width: 768px) {
+            max-width: 94%;
+            height: 249px;
+        }
+        @media screen and (max-width: 640px) {
+            height: auto;
+            max-width: 71%;
+            margin: auto;
+        }
+    }
+    h3 {
+        font-size: 22px!important;
+        @media screen and (max-width: 768px) {
+            font-size: 21px!important;
+        }
+        @media screen and (max-width:640px) {
+            font-size: 17px !important;
+        }
+    }
+}
+
+
+/* more posts button style */
+
+#more-topics-btn {
+    position: relative;
+    left: 37%;
+    background: transparent;
+    border: 1px solid #e7e7e7;
+    padding: 9px 28px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: #686868;
+    font-size: 16px;
+    font-family: Rokkitt;
+    font-weight: bold;
+    @media screen and (max-width: 640px) {
+        font-size: 14px!important;
+        display: block;
+        margin: auto;
+        position: initial;
+        margin-top: 35px; 
+    }
+    &:hover {
+        background-color: gray;
+        color: white;
+        transform: scale(1.1);
+    }
+}
+
+
+/* footer style */
+
+footer {
+    padding-top: 29px;
+    font-size: 19px;
+    padding-bottom: 40px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Rokkitt;
+    color: black;
+    @media screen and (max-width: 640px) {
+        font-size: 17px!important;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.footer-container {
+    padding-left: 0;
+}
+
+.sec-col {
+    margin-left: -7px;
+
+    @media screen and (max-width:640px){
+        margin-left: 0;
+    }
+}

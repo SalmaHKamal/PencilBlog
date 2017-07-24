@@ -1,0 +1,219 @@
+<!-- add your blog -->
+
+<div class="container click-to-post" ng-init="open=false;tags=[];username = main.username;main.blogIsPrev=ifBlog;">
+    <button class="btn btn-block ask-add-blog" ng-click="checkUser();" >Add your Blog <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+</div>
+
+
+<div class="row">
+    <div class="container form-container col-xs-12" ng-show="open == true">
+    <form ng-submit="blogController.addBlog(blogData);" id="blog-post" name="blog-form">
+        <div class="form-group">
+           <i class="fa fa-header" aria-hidden="true"></i> <input type="text" class="form-control" id="bTitle" placeholder="Blog Title " ng-model="blogController.blogData.bTitle">
+        </div>
+        <div class="form-group">
+            <i class="fa fa-paragraph" aria-hidden="true"></i><textarea class="form-control" id="bContent" name="bContent" placeholder="Blog Content" ng-model="blogController.blogData.bContent"></textarea>
+        </div>
+        <div class="form-group">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <div  class="form-control tags-input-div">
+                <input type="text" id="bTags" name="blogTags" placeholder="Blog Tags" ng-model="blogController.blogData.tags">
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" > -->
+             <div ng-show="uploading" class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    <span class="sr-only" </span>
+                </div>
+            </div>
+            <label class="btn btn-success">
+             <!-- <span class="glyphicon glyphicon-picture"></span> -->
+              Post Image  <i class="fa fa-upload" aria-hidden="true"></i> 
+                <input type="file" ng-disabled="uploading" file-model="blogController.blogData.postImage" name="postImage" style="display: none;" onchange="angular.element(this).scope().photoChanged(this.files)" />  
+            </label>
+
+            <img class="mythumbnail" ng-src="{{ thumbnail.dataUrl || 'assets/images/test.jpg' }}" width="200" height="200">
+        </div>
+
+        <div class="form-group" class="submit-div" >
+            <button type="submit" class="btn btn-submit" id="submitBtn" ng-click="open = false;" ng-disabled="!blogController.blogData.bTitle || !blogController.blogData.bContent" >Post
+                 <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+        </div>
+    </form>
+</div>
+</div>
+
+<!-- div style  -->
+<div class="container">
+    <div class="under-post-line">
+        <div class="styled-div"></div>
+        <div class="square-div-small-left"></div>
+        <div class="square-div"></div>
+        <div class="square-div-small-right"></div>
+    </div>
+</div>
+
+<!-- posts  -->
+    <!-- first post  -->
+    <section id="first-post">
+        <div class="container">
+            <div class="post-head">
+                <h2>Blue old car parking on the side of street waiting to get fixed</h2>
+                <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+            </div>
+            <div class="div-content">
+                <h6>Posted at 2015, Dec 23 by Jimmy Wales</h6>
+                <span class="comment-number">17 Comment</span>
+                <p>It's no secret the the digital industry is booming. From exciting startups to 
+                    global brands, companies are reacing out ti digital agencies, responding to the 
+                    new possibili-ties available. However, the industry is fast becoming overcrowded,
+                    heaving with agencies offering similar services - on the surface, at least.
+                </p>
+                <a class="continue-anchor">Continue Reading ...</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- second post  -->
+    <section id="second-post">
+        <div class="container">
+            <div class="post-head">
+                <h2>The building of Hoover Dam belongs to the sagas of the daring</h2>
+                <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+            </div>
+            <div class="div-content">
+                <h6>Posted at 2015, Dec 23 by Jimmy Wales</h6>
+                <span class="comment-number">17 Comment</span>
+                <div>
+                    <img class="img img-responsive post-image" src="assets/images/sea.jpg" alt="sea-image">
+                </div>
+                <p>It's no secret the the digital industry is booming. From exciting startups to 
+                    global brands, companies are reacing out ti digital agencies, responding to the 
+                    new possibili-ties available. However, the industry is fast becoming overcrowded,
+                    heaving with agencies offering similar services - on the surface, at least.
+                </p>
+                <a class="continue-anchor" href="/seaPostDetails">Continue Reading ...</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- dynamic posts from get request -->
+    <section id="second-post" ng-repeat="blog in allBlogs">
+        <div class="container">
+            <div class="post-head">
+                <h2>{{blog.title}}</h2>
+                <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+            </div>
+            <div class="div-content">
+                <h6>Posted at 2015, Dec 23 by Jimmy Wales</h6>
+                <span class="comment-number">17 Comment</span>
+                <div>
+                    <img class="img img-responsive post-image" ng-src="data:image/jpg;base64,{{blog.postImage}}" alt="sea-image" ng-show="blog.postImage">
+                </div>
+                <p>{{blog.content}}
+                </p>
+                <a class="continue-anchor" href="/postDetails/{{blog.title}}">Continue Reading ...</a>
+            </div>
+        </div>
+    </section> 
+
+    <!-- <div ng-app="" ng-include="'morePosts.html'"></div> -->
+
+     <!-- more posts  -->
+    
+    <section id="more-posts">
+        <div class="container more-posts-container">
+            <h3 id="keepGoing-h3" ng-show="inPostDetailsPage == false">Keep Going</h3>
+            <h3 id="keepGoing-h3" ng-show="inPostDetailsPage == true">More Stories To Read</h3>
+            <div class="row posts-row">
+                <!-- first col - first post -->
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class="post-head">Interoid Design Industry Has Been Changed This Year</h3>
+                    <div class="div-content">
+                        <h6>Posted at 2015, Des 23 by Jimmy Wales</h6>
+                        <span class="comment-number">17 Comment</span>
+                        <div class="first-col-images">
+                            <img class="img img-responsive more-posts-image carI" src="assets/images/car.jpg" alt="car-image">
+                        </div>
+                        <p>
+                            In the early years of the 20th century, the rapid 
+                            development of the southwestern United States was creating
+                            a high demand for electricity and water. Simultaneously.
+                        </p>
+                        <a class="continue-anchor">Continue Reading ... </a>
+                    </div>
+
+                <!-- first col - second post  -->
+
+                    <h3 class="post-head">Interoid Design Industry Has Been Changed This Year</h3>
+                    <div class="div-content">
+                        <h6>Posted at 2015, Des 23 by Jimmy Wales</h6>
+                        <span class="comment-number">17 Comment</span>
+                        <div class="first-col-images">
+                            <img class="img img-responsive more-posts-image nileI" src="assets/images/nile.jpg" alt="nile-image">
+                        </div>
+                        <p>
+                            In the early years of the 20th century, the rapid 
+                            development of the southwestern United States was creating
+                            a high demand for electricity and water. Simultaneously.
+                        </p>
+                        <a class="continue-anchor">Continue Reading ... </a>
+                    </div>
+                </div>
+
+                <!-- sec col - first post -->
+                <div class="col-sm-6 col-xs-12 sec-col">
+                    <h3 class="post-head">Interoid Design Industry Has Been Changed This Year</h3>
+                    <div class="div-content">
+                        <h6>Posted at 2015, Des 23 by Jimmy Wales</h6>
+                        <span class="comment-number">17 Comment</span>
+                        <div >
+                            <img class="img img-responsive more-posts-image cup-image" src="assets/images/cup.jpg" alt="cup-image">
+                        </div>
+                        <p>
+                            In the early years of the 20th century, the rapid 
+                            development of the southwestern United States was creating
+                            a high demand for electricity and water. Simultaneously.
+                        </p>
+                        <a class="continue-anchor">Continue Reading ... </a>
+                    </div>
+
+                <!-- sec col - second post  -->
+
+                    <h3 class="post-head">Interoid Design Industry Has Been Changed This Year</h3>
+                    <div class="div-content">
+                        <h6>Posted at 2015, Des 23 by Jimmy Wales</h6>
+                        <span class="comment-number">17 Comments</span>
+                        <div>
+                            <img class="img img-responsive com-image more-posts-image" src="assets/images/computer.jpg" alt="com-image">
+                        </div>
+                        <p>
+                            In the early years of the 20th century, the rapid 
+                            development of the southwestern United States was creating
+                            a high demand for electricity and water. Simultaneously.
+                        </p>
+                        <a class="continue-anchor">Continue Reading ... </a>
+                    </div>
+                </div>
+            
+            </div>
+            <button id="more-topics-btn">more topics</button>
+        </div>
+    </section>
+
+
+    <!--Start footer1 -->
+    <footer>
+        <div class="container footer-container">
+            <p>Thanks for reading my blog<br>regards,</p><span>Jimmy Wales</span>
+        </div>
+    </footer>
+
+
+<!-- overlay layer  -->
+ <div class="overlay" ng-show="open == true;" ng-click="open = false;"></div>
+<i class="fa fa-times fa-5x" ng-show="open == true;" aria-hidden="true"></i> 
+  
+
+

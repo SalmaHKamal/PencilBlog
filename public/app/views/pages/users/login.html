@@ -1,0 +1,80 @@
+<div class="container">
+
+
+    <!-- Main Section -->
+    <section id="contact">
+        <!-- Start of Container -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3 form-div">
+                    <form name="sentMessage" id="login-form" class="login-reg-forms" ng-submit="main.doLogin(loginData);" novalidate>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- Username Input -->
+                                <div class="form-group">
+                                    <label>Username:</label>
+                                    <input ng-disabled="main.disabled" class="form-control" type="text" name="username" placeholder="username *" ng-model="main.loginData.username"
+                                        autocomplete="off">
+                                </div>
+                                <!-- Password Input -->
+                                <div class="form-group">
+                                    <label>Password:</label>
+                                    <input ng-disabled="main.disabled" class="form-control" type="password" name="password" placeholder="password *" ng-model="main.loginData.password">
+                                </div>
+                                <div>
+                                    <!-- Login Button -->
+                                    <button type="submit" ng-disabled="main.disabled" class="btn login-btn">Login</button>
+                                    <p>haven't account yet ?<a href="/register"> register a new account</a></p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 text-left">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Loading Icon (font awesome) -->
+            <div class="row text-center" ng-show="main.loading">
+                <div class="col-xs-4 col-xs-offset-4">
+                    <span class="fa fa-spinner spinner"></span>
+                    <p>Loading....</p>
+                </div>
+            </div>
+
+            <!-- Failed login Message -->
+            <div class="row show-hide-message" ng-show="main.errorMsg">
+                <div class="col-xs-12">
+                    <div class="alert alert-danger">{{ main.errorMsg }}</div>
+                </div>
+            </div>
+            <!-- Failed login Message -->
+
+            <!-- Successful login Message -->
+            <div class="row show-hide-message" ng-show="main.successMsg">
+                <div class="col-xs-12">
+                    <div class="alert alert-success">{{ main.successMsg }}</div>
+                </div>
+            </div>
+            <!-- Successful login Message  -->
+
+        </div>
+        <!-- End of Container -->
+    </section>
+    <!-- Main Section /-->
+</div>
+
+
+<!-- div style  -->
+<div class="container in-login-page">
+    <div class="under-post-line">
+        <div class="styled-div"></div>
+        <div class="square-div-small-left"></div>
+        <div class="square-div"></div>
+        <div class="square-div-small-right"></div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+// variables 
+@import "fonts";
+@import "colors";
+
+.form-div{
+    border-radius: 50px 0 50px 0;
+    padding: 3px;
+    border: 1px solid #2b2a2a;
+    margin-bottom: 54px;
+
+    .login-reg-forms{
+        background-color: #3a3a3a;
+        border-radius: 50px 0 50px 0;
+        padding: 50px;
+    }
+
+    label{
+        color: #bdb5b5;
+    }
+
+    input{
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px 0 20px 0;
+
+        &:focus{
+            border-color: #1da299;
+            border-width: 3px;
+            transform: scale(1.1);
+        }
+    }
+
+    .login-btn , .register-btn{
+        margin-bottom: 34px;
+        background-color: #1da299;
+        color: white;
+        border-radius: 20px 0 20px 0;
+    }
+
+    p{
+        margin-bottom: 0;
+        color: white;
+
+        a{
+            color: #1da299;
+            text-decoration: underline;
+
+            &:active{
+                color: #44b3ab
+            }
+        }
+    }
+
+}
+
+.in-register-page,
+.in-login-page{
+
+    .styled-div{
+        border-bottom: 1px solid #3a3a3a;
+    }
+
+    .square-div-small-left,
+    .square-div,
+    .square-div-small-right{
+        border: 1px solid #3a3a3a;
+    }
+
+    .square-div{
+        z-index: 1;
+    }
+}
+

@@ -1,0 +1,203 @@
+
+// variables 
+@import "fonts";
+@import "colors";
+
+
+/* to blog button */
+
+.click-to-post{
+        padding-bottom: 65px;
+
+        .ask-add-blog{
+            background-color: whitesmoke;
+            font-family: Rokkitt;
+            font-weight: bold;
+            font-size: 20px;
+            border-bottom: 6px solid grey;
+            border-radius: 0;
+            margin: auto;
+            width: 73%;
+
+            .fa-pencil-square-o{
+                font-size: 23px;
+                position: relative;
+                top: 4px;
+                margin-left: 10px;
+            }
+        }
+
+
+
+}
+
+
+
+
+/* form style */
+
+.form-container{
+    z-index: 2;
+    position: fixed;
+    left: 16%;
+    top: 5%;
+
+    #blog-post{
+    border-left: 66px solid #c6c6c6;
+    padding: 36px 36px 20px 36px;
+    z-index: 10;
+    background-color: white;
+    -webkit-box-shadow: 2px 2px 10px grey;
+    box-shadow: 3px 2px 10px grey;
+    margin-bottom: 60px;
+    border-radius: 9px 0 0 9px;
+
+        .fa-tags , .fa-header{
+            background-color: #c6c6c6;
+            color: white;
+            padding: 10px;
+            border-radius: 6px 0 0 6px;
+            float: left;
+        }
+
+        .fa-paragraph{
+
+            @extend .fa-tags;
+            position: relative;
+            /* top: -22px; */
+            /* height: 52px; */
+            line-height: 32px;
+            width: 34px;
+
+        }
+    
+
+    input , textarea , .tags-input-div{
+        border-style: none;
+        border-bottom: 1px solid #eef3f5;
+        background-color: #f5f2f2;
+        display: inline-block;
+        border-radius: 0 4px 4px 0;
+    }
+    textarea{
+        height: 160px;
+    }
+
+    .after-enter{
+        background-color: #968f8f;
+        width: auto;
+        border-radius: 4px;
+        color: white;
+        user-select: none;
+        padding :4px 6px 4px 10px;
+        margin-right: 10px;
+        text-align: left;
+    }
+
+    .form-control{
+        width: 94%;
+    }
+
+    .form-group:last-child{
+        margin-bottom: 0;
+    }
+
+    .fa-upload{
+        margin-left: 10px;
+    }
+
+    label{
+        background-color: gray;
+        color: whitesmoke;
+        box-shadow: 2px 2px 12px grey;
+        border: none;
+        position: absolute;
+        top: 62%;
+        left: 18%;
+    }
+
+    .submit-div{
+        border-top: 1px solid #c6c6c6;
+        padding-top: 20px;
+    }
+
+    .btn-submit{
+        padding: 7px 53px;
+        border: none;
+        box-shadow: 2px 2px 10px grey;
+        background-color: #168274;
+        position: relative;
+        left: 76%;
+        color: white;
+    }
+
+    
+}
+
+}
+
+
+
+/* styled div */
+
+.under-post-line{
+    position: relative;
+
+    .styled-div{
+        border: 1px solid #e7e7e7;
+    }
+
+    .square-div-small-left{
+        width: 15px;
+        height: 15px;
+        position: relative;
+        background-color: #e7e7e7;
+        border: 2px solid #e7e7e7;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 48%;
+        bottom: 9px;
+    }
+
+    .square-div{
+        width: 20px;
+        height: 20px;
+        position: relative;
+        background-color: #e7e7e7;
+        border: 2px solid #e7e7e7;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 50%;
+        bottom: 26px;
+    }
+
+    .square-div-small-right{
+        width: 15px;
+        height: 15px;
+        position: relative;
+        background-color: #e7e7e7;
+        border: 2px solid #e7e7e7;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 52.8%;
+        bottom: 43px;
+    }
+
+}
+
+/* overlay style */
+.overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 82, 109, 0.53);
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    //opacity: 1;
+    display: block;
+    cursor: none;
+}

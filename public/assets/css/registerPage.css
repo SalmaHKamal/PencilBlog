@@ -1,0 +1,49 @@
+.form-div {
+  border-radius: 50px 0 50px 0;
+  padding: 3px;
+  border: 1px solid #2b2a2a;
+  margin-bottom: 54px; }
+  .form-div .login-reg-forms {
+    background-color: #3a3a3a;
+    border-radius: 50px 0 50px 0;
+    padding: 50px; }
+  .form-div label {
+    color: #bdb5b5; }
+  .form-div input {
+    background-color: white;
+    border-radius: 20px 0 20px 0; }
+    .form-div input:focus {
+      border-color: #1da299;
+      border-width: 3px;
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1); }
+  .form-div .login-btn, .form-div .register-btn {
+    margin-bottom: 34px;
+    background-color: #1da299;
+    color: white;
+    border-radius: 20px 0 20px 0; }
+  .form-div p {
+    margin-bottom: 0;
+    color: white; }
+    .form-div p a {
+      color: #1da299;
+      text-decoration: underline; }
+      .form-div p a:active {
+        color: #44b3ab; }
+
+.in-register-page .styled-div,
+.in-login-page .styled-div {
+  border-bottom: 1px solid #3a3a3a; }
+
+.in-register-page .square-div-small-left,
+.in-register-page .square-div,
+.in-register-page .square-div-small-right,
+.in-login-page .square-div-small-left,
+.in-login-page .square-div,
+.in-login-page .square-div-small-right {
+  border: 1px solid #3a3a3a; }
+
+.in-register-page .square-div,
+.in-login-page .square-div {
+  z-index: 1; }
